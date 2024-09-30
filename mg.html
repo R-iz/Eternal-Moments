@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venue Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    h1 {
+      margin: 0;
+    }
+    .wedding-image {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+    .container {
+      padding: 2rem;
+    }
+    .venue-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .venue-option {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .venue-option:hover {
+      transform: scale(1.05);
+    }
+    .venue-option img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+    .venue-option button {
+      background-color: #555;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .venue-option button:hover {
+      background-color: #333;
+    }
+    .hotel-info {
+      display: none;
+    }
+    .hotel {
+      display: flex;
+      background-color: white;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      align-items: center;
+    }
+    .hotel img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      margin-right: 1rem;
+      border-radius: 4px;
+    }
+    .hotel-details {
+      flex: 1;
+    }
+    .hotel-details h3 {
+      margin: 0;
+      color: #333;
+    }
+    .hotel-details p {
+      margin: 0.5rem 0;
+      color: #555;
+    }
+    .rating {
+      color: #f39c12;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      .venue-options {
+        flex-direction: column;
+        align-items: center;
+      }
+      .venue-option {
+        width: 80%;
+      }
+      .hotel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hotel img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+    }
+    .confirmation-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: green;
+    }
+    select, button {
+      padding: 0.75rem;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 300px;
+      font-size: 1rem;
+    }
+    button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 class="animated-text">Select Your Dream Venue</h1>
+</header>
+
+<div class="container">
+  <img src="https://sansflowers.com/wp-content/uploads/2024/05/best-flowers-for-outdoor-weddings.jpeg" alt="Wedding Planning" class="wedding-image">
+  <h2 class="animated-text">Choose a Venue Type:</h2>
+  <div class="venue-options">
+    <div class="venue-option">
+      <img src="https://zowed.com/blog/wp-content/uploads/2022/04/59547893_641141796352179_8108756417893938041_n-704x704.jpg" alt="Mountains">
+      <button onclick="showHotels('mountains')">Mountains</button>
+    </div>
+    <div class="venue-option">
+      <img src="https://cdn-goimh.nitrocdn.com/LyAXmKQzbBhSkvAJleRLJoQdWcloLhAR/assets/images/optimized/rev-9e818ce/www.weddingdiaries.com.au/wp-content/uploads/2023/01/Wedding-Venues-in-Geraldton.jpg" alt="Forests">
+      <button onclick="showHotels('forests')">Forests</button>
+    </div>
+    <div class="venue-option">
+      <img src="https://christopheweddingphoto.com/wp-content/uploads/2020/06/qasr-al-sarab-wedding_021.jpg" alt="Deserts">
+      <button onclick="showHotels('deserts')">Deserts</button>
+    </div>
+    <div class="venue-option">
+      <img src="https://v3events.in/blog/wp-content/uploads/2023/01/o.jpeg" alt="Beaches">
+      <button onclick="showHotels('beaches')">Beaches</button>
+    </div>
+    <div class="venue-option">
+      <img src="https://i1.wp.com/www.weddingsutra.com/images/wedding-images/real_wed/featured/shruti-rohit/shruti-rohit-18.jpg" alt="Historical Palaces">
+      <button onclick="showHotels('palaces')">Historical Palaces</button>
+    </div>
+  </div>
+
+  <div id="hotel-list" class="hotel-info">
+    <!-- Dynamic Hotel Info Will Be Injected Here -->
+  </div>
+</div>
+<div class="container">
+<div class="form-container">
+  <h2 class="animated-text">Select your desired Venue:</h2>
+  
+  <label for="venue">Select Venue Type:</label>
+  <select id="venue" onchange="updateHotels()">
+    <option value="">Select a venue</option>
+    <option value="mountains">Mountains</option>
+    <option value="forests">Forests</option>
+    <option value="deserts">Deserts</option>
+    <option value="beaches">Beaches</option>
+    <option value="palaces">Historical Palaces</option>
+  </select>
+
+  <label for="hotel">Select Hotel:</label>
+  <select id="hotel">
+    <option value="">Select a hotel</option>
+    <!-- Dynamic hotel options will be populated here -->
+  </select>
+
+  <button onclick="confirmBooking()">Confirm Booking</button>
+
+  <div class="confirmation-message" id="confirmationMessage">Your booking is registered!</div>
+</div>
+</div>
+<footer>
+  <p>Copyright &copy; 2024 Eternal Moments Wedding Planners by Riddhi | All Rights Reserved.</p>
+</footer>
+<script>
+  const hotels = {
+    mountains: [
+      {
+        name: "Mountain Retreat Resort",
+        price: "$400/night",
+        address: "123 Mountain Road, Aspen, CO",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipO6q2fosoHEAYoSci_hTbYapqTdmSAMI1CxEU5o=w287-h192-n-k-rw-no-v1",
+      },
+      {
+        name: "Alpine Peak Hotel",
+        price: "$350/night",
+        address: "567 Alpine Ave, Zermatt, Switzerland",
+        rating: "★★★★☆",
+        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/519555153.jpg?k=efbd2dbbc60efea7fe0d9bf9daa746b3820e0d047740ce0872a0cc372b98ac3e&o=&hp=1",
+      },
+      {
+        name: "Everest View Hotel",
+        price: "$500/night",
+        address: "Lukla - Shyangboche Marg, Khumjung 56000, Nepal",
+        rating: "★★★★☆",
+        img: "https://hoteleverestview.com/gallery/thumb/hev_sunset.jpg",
+      },
+      {
+        name: "The Omnia",
+        price: "$800/night",
+        address: "Auf dem Fels, 3920 Zermatt, Switzerland",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipPkkQt_tLM-ZbSCs7W7bmVURYFeiKGh3f4BtiGA=s680-w680-h510",
+      },
+      {
+        name: "High Peaks Resort",
+        price: "$300/night",
+        address: "2384 Saranac Ave, Lake Placid, NY 12946, United States",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipPkGtj2l6gM6cKDhmc0hKGIOOV4Hw8UeHCvf4_x=s680-w680-h510",
+      },
+      {
+        name: "Falcon Crest Lodge by CLIQUE",
+        price: "$250/night",
+        address: "190 Kananaskis Way, Canmore, AB T1W 3K5, Canada",
+        rating: "★★★★☆",
+        img: "https://lh5.googleusercontent.com/p/AF1QipN2Ym3sXFTJ0ewQEJQ0XhWtjz5Dvzxa3omkX8Ij=w243-h174-n-k-no-nu",
+      },
+      {
+        name: "Hotel Granbaita Dolomites",
+        price: "$400/night",
+        address: "S.da Nives, 11, 39048 Selva di Val Gardena BZ, Italy",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMGZZY61Lgh-yc5YEg6_dC6PGlW_It9H4DfO1EJ=s680-w680-h510",
+      },
+      {
+        name: "Wildflower Hall, An Oberoi Resort, Shimla",
+        price: "$700/night",
+        address: "Charabra, Shimla, Himachal Pradesh, India",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipNYpTTJywgZPmIMps4R13wSKSjkMuJkGHVgMIr_=s680-w680-h510",
+      },
+      {
+        name: "Amangani, Jackson Hole, Wyoming",
+        price: "$2000/night",
+        address: "1535 E Butte Rd, Jackson, WY 83001, United States",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipM7cwFlGROtNx7hG3FvmZUy2qn15YOpAOObE4NC=s680-w680-h510",
+      },
+      {
+        name: "Explora Patagonia Hotel Salto Chico",
+        price: "$2000/night",
+        address: "Torres del Paine National Park, Torres de Paine, Magallanes y la Antártica Chilena, Chile",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMcOIxXHYHTKHtYkx67vClxr8x3bXIegjGaugvv=s680-w680-h510",
+      },
+      // Add more mountains hotels here up to 10
+    ],
+    forests: [
+      {
+        name: "Forest Hideaway",
+        price: "$300/night",
+        address: "101 Forest Lane, Black Forest, Germany",
+        rating: "★★★★★",
+        img: "https://a0.muscache.com/im/pictures/miso/Hosting-916385712990982106/original/2ba2aff0-bf13-417f-9273-81107cbc55c4.jpeg?im_w=1200",
+      },
+      {
+        name: "Treehouse Point",
+        price: "$300/night",
+        address: "6922 Preston-Fall City Rd SE, Issaquah, WA 98027, United States",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMbESQij0l-_QTgx_4DLIbPIM39xYjNYw_PWW5t=s680-w680-h510",
+      },
+      {
+        name: "Tsala Treetop Lodge",
+        price: "$600/night",
+        address: "Off N2 10km W Of Plettenberg, Plettenberg Bay, 6600, South Africa",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipPdvSjZrvWYQG-Qyh0m7vCXAl6ZKKV3yTjZosFx=s680-w680-h510",
+      },
+      {
+        name: "The Kayon Jungle Resort",
+        price: "$600/night",
+        address: "Br, Bresela, Kec. Payangan, Kabupaten Gianyar, Bali 80572, Indonesia",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipNMTyKKUMDaqx7NTET__bhTBHy58K6XdMONZKLA=s680-w680-h510",
+      },
+      {
+        name: "Nandini Jungle by Hanging Gardens",
+        price: "$300/night",
+        address: "Br. Susut, Buahan, Kec. Payangan, Kabupaten Gianyar, Bali 80572, Indonesia",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMqL0AinXySgXjnIoLLEYRPONeki8xGmz2TNpdU=s680-w680-h510",
+      },
+      {
+        name: "The Taj Gateway Hotel Gir",
+        price: "$600/night",
+        address: "near Sinh Sadan, Sasan Gir, Sasan, Gujarat 362135,India",
+        rating: "★★★★★",
+        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29754165.jpg?k=b913fbfac6e8c630e6cf8adef1af4a8095473a112a4487debea6482c13560d18&o=&hp=1",
+      },
+      {
+        name: "The Oberoi Vanyavilas Wildlife Resort, Ranthambore",
+        price: "$600/night",
+        address: "Ranthambhore Rd, Sawai Madhopur, Rajasthan 322001,India",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipORkuoODNGBUtFM988ARr64SAG99XCNLPCKxl1W=s680-w680-h510",
+      },
+      {
+        name: "The Woodlands® Resort, Curio Collection by Hilton",
+        price: "$300/night",
+        address: "2301 N Millbend Dr, The Woodlands, TX 77380, United States",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/proxy/EnivuQqDI2P8OOEqU-yNxkc24Rk9llPYLThDWHl3lyftp9cIRTs3YyvN0gxLtw-XBsdMtoiKbo01-gCWMtLyEAhPRmkbDz04SBj3T3fpexD67UDgvSeQdj7gLQQMW_he5lyf8V0QPos5_4SwpX-wcwDqIrPw9Vw=s680-w680-h510",
+      },
+      {
+        name: "Vigilius Mountain Resort",
+        price: "$500/night",
+        address: "Via Villa, 3, 39011 Lana BZ, Italy",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipNnXxVYv9_56EfJB1OZ2JRtnwUY1i_0qRbWtZYa=s680-w680-h510",
+      },
+      {
+        name: "Fairmont Banff Springs",
+        price: "$600/night",
+        address: "405 Spray Ave, Banff, AB T1L 1J4, Canada",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/proxy/-JDR9bFMteXGJRR_b_kL1ojDceNWKa-rIV51iCwaJ9ESp0LzqWbbgkb5ae-tdsMlR429TdQGalFAuPvdvKTpdik0_7GKmcETaBKwK6tRQh48A3DWK8FgvSrWg_zlPGuliRehyMWCe0RyCQP1AP-SiOijHrXMFw=s680-w680-h510",
+      },
+      // Add more forests hotels here up to 10
+    ],
+    deserts: [
+      {
+        name: "Desert Oasis",
+        price: "$500/night",
+        address: "202 Desert Drive, Dubai, UAE",
+        rating: "★★★★★",
+        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/453217464.jpg?k=e042830ff6184d15e9bbcaaf29b326c9349e0f6f459ff7467c2fee659fe4bbdc&o=&hp=1",
+      },
+      {
+        name: "Al Maha Desert Resort",
+        price: "$1200/night",
+        address: "E Al Ain - Dubai Rd - Dubai - United Arab Emirates",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipOHojYxZTscxmwLVwfkLQH5Rn4qrU__D9Hv8TLM=s680-w680-h510",
+      },
+      {
+        name: "Amangiri",
+        price: "$1500/night",
+        address: "1 Kayenta Rd, Canyon Point, UT 84741, United States",
+        rating: "★★★★★",
+        img: "https://www.aman.com/sites/default/files/styles/masonry_extra_large/public/2023-12/amangiri_usa_-_architecture_resort_pool_overview.jpg?itok=XPzArSrg",
+      },
+      {
+        name: "El Perdido Desert Dream",
+        price: "$900/night",
+        address: "Pescadero 111, 23300 El Pescadero, B.C.S., Mexico",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMd0AwOQ21psK844U1CelP1G3tv1sSm9zsN-w0Y=s680-w680-h510",
+      },
+      {
+        name: "The Ritz-Carlton, Dove Mountain",
+        price: "$800/night",
+        address: "15000 N Secret Springs Dr, Marana, AZ 85658, United States",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipOkM9BCtc4918LUpgGrTl9j4BGj2OF7edWmKhQR=s680-w680-h510",
+      },
+      {
+        name: "Banyan Tree AlUla",
+        price: "$500/night",
+        address: "Road, Wadi Ashar Tabuk, AlUla 43563, Saudi Arabia",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipNSEkNkLtK9Vq_KKAJtT_IvVOg8bkB9VDdLUcNc=s680-w680-h510",
+      },
+      {
+        name: "Four Seasons Resort Sharm El Sheikh",
+        price: "$500/night",
+        address: "1 Four Seasons Boulevard, El-Salam, Second Sharm Al Shiekh, Egypt",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipP5GTk4NjPXu_ftDDgsu-j37wwMModljUImhyV_=s680-w680-h510",
+      },
+      {
+        name: "Qasr Al Sarab Desert Resort by Anantara",
+        price: "$600/night",
+        address: "Qasr Al Sarab Desert Resort - Al Mirayr - Abu Dhabi - United Arab Emirates",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipOiAjDlTjQDryBK-nEac6dxlwrSYpF3O5BWoqb0=s680-w680-h510",
+      },
+      {
+        name: "Suryagarh Jaisalmer",
+        price: "$300/night",
+        address: "Kahala Phata, Jaisalmer - Sam - Dhanana Rd, Jaisalmer, Rajasthan 345001,India",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipPmDw_KuefHWYi7KuVhZJrr3bIEyiXHMiCZ3krR=s680-w680-h510",
+      },
+      {
+        name: "Rixos Premium Seagate",
+        price: "$400/night",
+        address: " Nabq Bay EGYPT, Second Sharm Al Shiekh, South Sinai Governorate 46628, Egypt",
+        rating: "★★★★★",
+        img: "https://mmf5angy.twic.pics/ahstatic/www.ahstatic.com/photos/b1j8_ho_00_p_1024x768.jpg?ritok=65&twic=v1/cover=586x450",
+      },
+      // Add more deserts hotels here up to 10
+    ],
+    beaches: [
+      {
+        name: "Beachside Paradise",
+        price: "$450/night",
+        address: "303 Ocean Avenue, Maldives",
+        rating: "★★★★★",
+        img: "https://images.rezfusion.com/?optimize=true&rotate=true&quality=70&width=2048&source=https%3A//img.trackhs.com/x/https%3A//track-pm.s3.amazonaws.com/ami/image/80cd4607-2647-47e7-bec5-fd21de61abda&settings=default",
+      },
+      {
+        name: "The Brando",
+        price: "$3000/night",
+        address: "Tetiaroa, Arue 98702, French Polynesia",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMibT8vsQuLhuz4J5id3Zw17Gqasok6WcJlQM5W=s680-w680-h510",
+      },
+      {
+        name: "Soneva Fushi",
+        price: "$1800/night",
+        address: "Kunfunadhoo Island, Eydhafushi, Maldives",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/proxy/iES19MCS-gxLS-xt5zmGlLdW5cFg5_3pwo_s2-nviOXzcldn98Zgd4dYE7XB6-X8plQL6iwlLvuvIn9pcAkzEWwNa4TQK_IpT3JYcc_8yON3XN980dYmi-SkMMREgHcXDmejuLY0YmDLG7-4BcfIZXYVK09lFP4=s680-w680-h510",
+      },
+      {
+        name: "One&Only Le Saint Géran",
+        price: "$1000/night",
+        address: "Pointe de Flacq, Poste de Flacq 41518, Mauritius",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMatrN5EM0TV51AJcBwHX9_INMrSlo_xpGet0Is=s680-w680-h510",
+      },
+      {
+        name: "Amanyara",
+        price: "$3000/night",
+        address: "Northwest Point, Wheeland Settlement TKCA 1ZZ, Turks & Caicos Islands",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipN3L245DXtsaaC5A08tdCE5RvMm1hqFAgotZBD9=s680-w680-h510",
+      },
+      {
+        name: "Soneva Kiri Resort & Residences",
+        price: "$2000/night",
+        address: "110, Tambon Ko Kut, Ko Kut District, Trat 23000, Thailand",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/proxy/ZQR8NtvdoOoZi2O4niMZK2fs3WLtM5OdCHyGKLp2gfWgm9Ucm145B4pFE5pkLucDkmD0N-H1BKB1sCSCabOtINDEBOOg8GZTfkMOJilV98T05gNkJwQQGO0ceskS1s3r8iz-O5Rz_Zqd0mmvVxHVQdF5n5VELTs=s680-w680-h510",
+      },
+      {
+        name: "Miavana by Time + Tide",
+        price: "$300/night",
+        address: "Miavana nosy ankao, Madagascar",
+        rating: "★★★★☆",
+        img: "https://media.cntraveler.com/photos/5ae08cf5c55b0b42414e882a/16:9/w_1600,c_limit/Time%20+%20Tide%20-%20Miavana%20HR-4.jpg",
+      },
+      {
+        name: "Kisawa Sanctuary",
+        price: "$7000/night",
+        address: "Kisawa Sanctuary Benguerra Island Inhambane, 1304, Mozambique",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipMozf1oidXGMhVojiSvjtaqL5r5VHH5kk8rMnxX=s680-w680-h510",
+      },
+      {
+        name: "COMO Laucala Island",
+        price: "$8000/night",
+        address: "Laucala Island, Fiji",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipPKYrmhHxIDGhMeNv6ge5-q9914GgstQDjKa-I7=s680-w680-h510",
+      },
+      {
+        name: "Titanic Luxury Collection Bodrum",
+        price: "$500/night",
+        address: "Meşelik, Çomca Mevkii Sok No:8, 48200 Bodrum/Muğla, Türkiye",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipP82poanBoglkmxW1QYY4Dx0qNWzqfVhCybx6VZ=s680-w680-h510",
+      },
+      // Add more beaches hotels here up to 10
+    ],
+    palaces: [
+      {
+        name: "Raffles Singapore",
+        price: "$800/night",
+        address: "1 Beach Rd, Singapore 189673",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipP76xmJiojmoqw4eOVIfZnqJCMJdJH-I3Zw1gsV=s680-w680-h510",
+      },
+      {
+        name: "Taj Lake Palace",
+        price: "$700/night",
+        address: "Taj Lake Palace, Pichola, Udaipur, Rajasthan 313001,India",
+        rating: "★★★★★",
+        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/19855153.jpg?k=a016e2e7d45d2d77e5e3d7db10ee0b4cd648c3f24a6ea6542b284043584b3738&o=&hp=1",
+      },
+      {
+        name: "Rambagh Palace - Jaipur",
+        price: "$800/night",
+        address: "Bhawani Singh Rd, Rambagh, Jaipur, Rajasthan 302005,India",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipPS38VP5j4uX7BxK2bclKs3up1GyNjoUAv17zXP=s680-w680-h510",
+      },
+      {
+        name: "Bari Kothi Heritage Hotel",
+        price: "$200/night",
+        address: "Jainpatty, Jiaganj Azimganj, Azimganj, West Bengal 742122,India",
+        rating: "★★★★★",
+        img: "https://barikothi.com/img/rooms/barikothi-front.webp",
+      },
+      {
+        name: "The Rajbari Bawali",
+        price: "$200/night",
+        address: "Bowali Rajbari, The, North, Bawali, Kolkata, Raypur, West Bengal 743384,India",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipORFUc7rzwN7Yu6ESwDKk-moM_4faTiW-rBk49_=s680-w680-h510",
+      },
+      {
+        name: "Neemrana Fort-Palace - 15th Century, Delhi-Jaipur Highway",
+        price: "$200/night",
+        address: "15th Century, Delhi-Jaipur Highway 122nd Milestone, Delhi - Jaipur Expy, Neemrana, Rajasthan 301705, India",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipOGpYCeklET0n_j8ntPj50fvtyUySaliFo48-ij=s680-w680-h510",
+      },
+      {
+        name: "Taj Falaknuma Palace",
+        price: "$600/night",
+        address: "Engine Bowli, Falaknuma, Hyderabad, Telangana 500053,India",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipPusMB05JoDir51ZV1ibAB0gK05pB4DhlypLJAf=s680-w680-h510",
+      },
+      {
+        name: "Umaid Bhawan Palace",
+        price: "$600/night",
+        address: "Cantt Area, Jodhpur, Rajasthan 342006,India",
+        rating: "★★★★☆",
+        img: "https://lh3.googleusercontent.com/p/AF1QipOZ03pSS_zRB5MjxW93WYtzKw2BOdYv8TJW6AHy=s680-w680-h510",
+      },
+      {
+        name: "Saint James Paris",
+        price: "$2000/night",
+        address: "5 Pl. du Chancelier Adenauer, 75116 Paris, France",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/p/AF1QipNgsgsCBmGvKC_mplizDWGp4uCulf6vzQ18g7Fp=s680-w680-h510",
+      },
+      {
+        name: "Copacabana Palace, A Belmond Hotel, Rio de Janeiro",
+        price: "$700/night",
+        address: "Av. Atlântica, 1702 - Copacabana, Rio de Janeiro - RJ, 22021-001, Brazil",
+        rating: "★★★★★",
+        img: "https://lh3.googleusercontent.com/proxy/fuliiFRx8aDHHlaUwRHfuoU6RsTgsUFdGEXKsytevm2LnKgK6qI2Sa_mV3diGsyGUhc-6HUds_E9rdU2BR8rabg07MqoHO0JdcvqFMVgH4X1lSSs5088xEJKPf_pKnQNG1JqQJLA9IJ0JLPb65tLzZLiqHDveAI=s680-w680-h510",
+      },
+      // Add more palaces hotels here up to 10
+    ],
+  };
+
+
+  function showHotels(type) {
+    const hotelList = document.getElementById("hotel-list");
+    hotelList.innerHTML = ""; // Clear previous hotels
+    hotelList.style.display = "block";
+
+    const selectedHotels = hotels[type];
+    if (!selectedHotels || selectedHotels.length === 0) {
+      hotelList.innerHTML = "<p>No hotels available for this venue type.</p>";
+      return;
+    }
+
+    selectedHotels.forEach((hotel) => {
+      const hotelDiv = document.createElement("div");
+      hotelDiv.classList.add("hotel");
+
+      const hotelImg = document.createElement("img");
+      hotelImg.src = hotel.img;
+      hotelImg.alt = hotel.name;
+      hotelDiv.appendChild(hotelImg);
+
+      const hotelDetails = document.createElement("div");
+      hotelDetails.classList.add("hotel-details");
+
+      const hotelName = document.createElement("h3");
+      hotelName.textContent = hotel.name;
+      hotelDetails.appendChild(hotelName);
+
+      const hotelPrice = document.createElement("p");
+      hotelPrice.textContent = "Price: " + hotel.price;
+      hotelDetails.appendChild(hotelPrice);
+
+      const hotelAddress = document.createElement("p");
+      hotelAddress.textContent = "Address: " + hotel.address;
+      hotelDetails.appendChild(hotelAddress);
+
+      const hotelRating = document.createElement("p");
+      hotelRating.innerHTML = "Rating: <span class='rating'>" + hotel.rating + "</span>";
+      hotelDetails.appendChild(hotelRating);
+
+      hotelDiv.appendChild(hotelDetails);
+      hotelList.appendChild(hotelDiv);
+    });
+  }
+  function updateHotels() {
+    const venue = document.getElementById("venue").value;
+    const hotelSelect = document.getElementById("hotel");
+    hotelSelect.innerHTML = '<option value="">Select a hotel</option>'; // Reset hotel dropdown
+
+    if (venue && hotels[venue]) {
+      hotels[venue].forEach(hotel => {
+        const option = document.createElement("option");
+        option.value = hotel.name;
+        option.textContent = hotel.name;
+        hotelSelect.appendChild(option);
+      });
+    }
+  }
+
+  function confirmBooking() {
+    const venue = document.getElementById("venue").value;
+    const hotel = document.getElementById("hotel").value;
+
+    if (venue && hotel) {
+      document.getElementById("confirmationMessage").style.display = 'block';
+    } else {
+      alert("Please select both a venue and a hotel.");
+    }
+  }
+</script>
+</body>
+</html>

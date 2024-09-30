@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choosing the Perfect Wedding Cake</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #5d4037;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #5d4037;
+        }
+        .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+        .cake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .cake-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 15px;
+            text-align: center;
+        }
+        .cake-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .cake-item h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .cake-item p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .price-tag {
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .form-section {
+            margin: 20px 0;
+        }
+        .form-section label {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        .form-section select {
+            padding: 8px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        .form-section input {
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px 0;
+        }
+        .calculate-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #080808;
+            color: #fff;
+            text-align: center;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .calculate-btn:hover {
+            background-color: #0a0909;
+        }
+        .total-cost {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 20px;
+            color: #28a745;
+        }
+        .confirmation-message {
+            text-align: center;
+            font-size: 1.5em;
+            color: #28a745;
+            display: none;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #5d4037;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th {
+            background-color: #5d4037;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="animated-text">Choosing the Perfect Wedding Cake</h1>
+    </header>
+
+    <div class="container">
+        <h2 class="animated-text">Find Your Dream Cake!</h2>
+        <p>Explore our delicious range of wedding cakes, choose the perfect flavor, and customize your design for the big day!</p>
+
+        <!-- Cake Options -->
+        <div class="cake-grid">
+            <div class="cake-item">
+                <img src="https://i.pinimg.com/736x/a8/4d/0c/a84d0cd7d359f0e1def63ae4d265aa77.jpg" alt="Vanilla Cake">
+                <h3>Vanilla Cake</h3>
+                <p>A classic vanilla-flavored cake perfect for elegant weddings.</p>
+                <span class="price-tag">$150</span>
+            </div>
+            <div class="cake-item">
+                <img src="https://i.pinimg.com/736x/d4/a8/98/d4a898cf71cb5fbed2e47e98ddd720a3.jpg" alt="Chocolate Cake">
+                <h3>Chocolate Cake</h3>
+                <p>Rich chocolate cake for a decadent wedding dessert.</p>
+                <span class="price-tag">$180</span>
+            </div>
+            <div class="cake-item">
+                <img src="https://i.pinimg.com/550x/08/65/f4/0865f4a835b538b8b0c0da5e45e3ce4c.jpg" alt="Strawberry Cake">
+                <h3>Strawberry Cake</h3>
+                <p>A sweet and fruity strawberry-flavored cake.</p>
+                <span class="price-tag">$170</span>
+            </div>
+            <div class="cake-item">
+                <img src="https://i.pinimg.com/550x/a8/ee/22/a8ee2220765dd4f933229ab3002de3ba.jpg" alt="Lemon Cake">
+                <h3>Lemon Cake</h3>
+                <p>Tangy lemon cake for a fresh and zesty taste.</p>
+                <span class="price-tag">$160</span>
+            </div>
+            <div class="cake-item">
+                <img src="https://www.winni.in/celebrate-relations/wp-content/uploads/2019/03/Red-Velvet-wedding-cakes-12.jpg" alt="Red Velvet Cake">
+                <h3>Red Velvet Cake</h3>
+                <p>Elegant red velvet cake with cream cheese frosting.</p>
+                <span class="price-tag">$190</span>
+            </div>
+            <div class="cake-item">
+                <img src="https://i.pinimg.com/736x/eb/75/18/eb75188965f894f25d75d50057e11bea.jpg" alt="Coconut Cake">
+                <h3>Coconut Cake</h3>
+                <p>Coconut-flavored cake for a tropical wedding vibe.</p>
+                <span class="price-tag">$175</span>
+            </div>
+        </div>
+
+        <!-- Form for selecting options -->
+        <div class="form-section">
+            <label for="theme">Choose Wedding Theme :</label>
+            <select id="theme">
+                <option value="">Select a Wedding Theme</option>
+                <option value="100">Classic White - $100</option>
+                <option value="150">Rustic Charm - $150</option>
+                <option value="200">Modern Glam - $200</option>
+                <option value="250">Beach Theme - $250</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label for="flavour">Select Cake Flavour:</label>
+            <select id="flavour">
+                <option value="">Select a Cake Flavour</option>
+                <option value="150">Vanilla - $150</option>
+                <option value="180">Chocolate - $180</option>
+                <option value="170">Strawberry - $170</option>
+                <option value="160">Lemon - $160</option>
+                <option value="190">Red Velvet Cake - $190</option>
+                <option value="175">Coconut Cake - $175</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label for="size">Choose Correct Cake Size:</label>
+            <select id="size">
+                <option value="">Select Correct Cake Size</option>
+                <option value="50">Small (serves up to 50) - $50</option>
+                <option value="100">Medium (serves up to 100) - $100</option>
+                <option value="150">Large (serves up to 150) - $150</option>
+                <option value="200">Extra Large (serves up to 200) - $200</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label for="designer">Book Your Cake Designer:</label>
+            <select id="designer">
+                <option value="">Select Cake Designer</option>
+                <option value="300">Premium Designer - $300</option>
+                <option value="250">Standard Designer - $250</option>
+                <option value="200">Budget Designer - $200</option>
+                <option value="150">Basic Designer - $150</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label for="guests">Enter Total Number of Guests:</label>
+            <input type="number" id="guests" placeholder="Total Number of Guests">
+        </div>
+
+        <!-- Book Now Button -->
+        <button class="calculate-btn" onclick="calculateTotal()">Book Now</button>
+
+        <!-- Total Cost Section -->
+        <div class="total-cost" id="totalCost">Total Cost: $0</div>
+
+        <!-- Confirmation Message -->
+        <div class="confirmation-message" id="confirmationMessage">
+            Your booking is confirmed! Thank you for choosing us!
+        </div>
+    </div>
+    <footer>
+        <p>Copyright &copy; 2024 Eternal Moments Wedding Planners by Riddhi | All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function calculateTotal() {
+    const theme = parseInt(document.getElementById('theme').value);
+    const flavour = parseInt(document.getElementById('flavour').value);
+    const size = parseInt(document.getElementById('size').value);
+    const designer = parseInt(document.getElementById('designer').value);
+    const guests = parseInt(document.getElementById('guests').value);
+
+    let totalCost = theme + flavour + size + designer;
+
+    // Calculate additional cost based on number of guests
+    if (guests > 50) {
+        totalCost += (guests - 50) * 5;
+    }
+
+    document.getElementById('totalCost').innerHTML = `Total Cost: $${totalCost}`;
+
+    // Show confirmation message
+    document.getElementById('confirmationMessage').style.display = 'block';
+}
+</script>

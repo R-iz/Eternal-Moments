@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Party | Eternal Moments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background-color: #8e44ad;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #5d4037;
+        }
+        h3 {
+            text-align: center;
+            color: #5d4037
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .party-image {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+        .details-section {
+            margin-top: 20px;
+        }
+        .details-section h3 {
+            font-size: 1.8em;
+            color: #333;
+        }
+        .details-section p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        .price-tag-container {
+           text-align: center;
+        margin-top: 10px;
+        }
+        .price-tag {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .cost-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .cost-table th, .cost-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .cost-table th {
+            background-color: #5d4037;
+            color: #fff;
+        }
+        .cost-table td {
+            background-color: #f9f9f9;
+        }
+        .total-row {
+            font-weight: bold;
+        }
+        .book-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #8e44ad;
+            color: #fff;
+            text-align: center;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .book-btn:hover {
+            background-color: #8e44ad;
+        }
+        .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+        footer {
+            background-color: #8e44ad;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        /* Confirmation message */
+        .confirmation-message {
+            text-align: center;
+            font-size: 1.5em;
+            color: #28a745;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="animated-text">Welcome Party</h1>
+    </header>
+
+    <div class="container">
+        <h2 class="animated-text">Celebrate with a Joyful Welcome Party</h2>
+        <img src="https://cdn.speedsize.com/60594423-b60e-4dfc-bb30-f46193ea9dfc/https://5387157.fs1.hubspotusercontent-na1.net/hubfs/5387157/3.0%20Blog%20Images/San%20Diego%20Attractions%20_0011_NK187.jpg/mxw_2736,f_auto" alt="Welcome Party" class="party-image">
+
+        <div class="details-section">
+            <h3 class="animated-text">Event Details</h3>
+            <p>
+                Welcome your guests in style with a casual yet elegant welcome party. Let your friends and family relax and mingle before the big day.
+                We handle the setup, catering, and entertainment, ensuring everyone feels at home.
+            </p>
+            <div class="price-tag-container">
+            <span class="price-tag">Price: $1,500</span>
+        </div>
+        </div>
+
+        <!-- Cost Breakdown Table -->
+        <h3>Cost Breakdown</h3>
+        <table class="cost-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Venue</td>
+                    <td>Casual, cozy indoor or outdoor space</td>
+                    <td>$700</td>
+                </tr>
+                <tr>
+                    <td>Catering</td>
+                    <td>Buffet-style setup with appetizers and drinks</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>Decor</td>
+                    <td>Simple yet elegant decor including lighting and seating</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>Entertainment</td>
+                    <td>Background music and interactive elements</td>
+                    <td>$100</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Total Cost</td>
+                    <td>$1,500</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Book Now Button -->
+        <button class="book-btn" onclick="confirmBooking()">Book Now</button>
+
+        <!-- Confirmation Message -->
+        <div class="confirmation-message" id="confirmationMessage">
+            Your booking is confirmed! Thank you for choosing us!
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2024 Eternal Moments Wedding Planners by Riddhi | All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function confirmBooking() {
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

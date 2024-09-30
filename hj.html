@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Wedding Events | Eternal Moments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background-color: #5d4037;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .bold-text {
+            font-weight: bold;
+          }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #5d4037;
+        }
+        .wedding-image {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .event-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .event-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .event-info {
+            padding: 20px;
+        }
+        .event-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .event-info p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .price-tag {
+          background-color: #e74c3c;
+          color: #fff;
+          padding: 5px 10px;
+          border-radius: 20px;
+          font-weight: bold;
+          display: inline-block;
+          margin-top: 10px;
+        }
+        .book-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #0c0b0b;
+            color: #fff;
+            text-align: center;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .book-btn:hover {
+            background-color: #0c0b0b;
+        }
+        .cost-btn {
+            background-color: #0c0b0b;
+            color: white;
+            padding: 0.75rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .cost-btn:hover {
+            background-color: #0a0909;
+        }
+        .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+        footer {
+            background-color: #5d4037;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        /* Confirmation message */
+        .confirmation-message {
+            text-align: center;
+            font-size: 1.5em;
+            color: #28a745;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="animated-text">Pre-Wedding Events</h1>
+    </header>
+
+    <div class="container">
+        <h2 class="animated-text">Celebrate Every Moment Before the Big Day</h2>
+        <p class="bold-text">Make every moment count with our specially curated pre-wedding events. From intimate gatherings to lively celebrations, we've got you covered.</p>
+        <img src="https://www.shaadidukaan.com/vogue/wp-content/uploads/2019/08/California.jpeg" alt="Engagement Party" class="wedding-image">
+
+        <h2 class="animated-text">Events We Organize</h2>
+        <div class="event-grid">
+            <!-- Engagement Party -->
+            <div class="event-item" onclick="confirmBooking()">
+                <img src="https://media.istockphoto.com/id/1388562047/photo/beautiful-bride-and-groom-celebrate-wedding-at-an-evening-reception-party-with-multiethnic.jpg?s=612x612&w=0&k=20&c=CuJFZ3M3CgRvXVbyzidpHL4hqUsZN5R6tmmL1RIxpW0=" alt="Engagement Party">
+                <div class="event-info">
+                    <h3>Engagement Party</h3>
+                    <p>Celebrate your love with a themed engagement party that reflects your style.</p>
+                    <span class="price-tag">Price: $2,500</span>
+                    <a href="engagement party.html" class="cost-btn">View More Details</a>
+                </div>
+            </div>
+
+            <!-- Bridal Shower -->
+            <div class="event-item" onclick="confirmBooking()">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHKsF39v5S2_4xdAaznMCvVDzgtSWWyVuBqAdPJqVad3bmOKvHkPqHAEinA_eOdTPZprU&usqp=CAU" alt="Bridal Shower">
+                <div class="event-info">
+                    <h3>Bridal Shower</h3>
+                    <p>Host a beautiful bridal shower with personalized decor, games, and brunch.</p>
+                    <span class="price-tag">Price: $1,800</span>
+                    <a href="Bridal shower.html" class="cost-btn">View More Details</a>
+                </div>
+            </div>
+
+            <!-- Bachelor/Bachelorette Party -->
+            <div class="event-item" onclick="confirmBooking()">
+                <img src="https://images.bridestory.com/images/dpr_1.0,f_auto,fl_progressive,q_80,c_fill,g_faces,w_412/blogs/31375809_l_wrx9xn/3-reasons-why-you-should-have-a-bachelorette-party-1.jpg" alt="Bachelor/Bachelorette Party">
+                <div class="event-info">
+                    <h3>Bachelor/Bachelorette Party</h3>
+                    <p>Plan a wild night out or a relaxing weekend away with your closest friends.</p>
+                    <span class="price-tag">Price: $3,500</span>
+                    <a href="bachelor.html" class="cost-btn">View More Details</a>
+                </div>
+            </div>
+
+            <!-- Rehearsal Dinner -->
+            <div class="event-item" onclick="confirmBooking()">
+                <img src="https://www.brides.com/thmb/BRCgYiIEjV31LEzzAWXPTXkCEgA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ideas-JeremiahRachelPhotography-f484e5c969144d168f524e5b9e513062.jpg" alt="Rehearsal Dinner">
+                <div class="event-info">
+                    <h3>Rehearsal Dinner</h3>
+                    <p>Gather for an intimate dinner before the wedding to rehearse and celebrate with close friends and family.</p>
+                    <span class="price-tag">Price: $2,000</span>
+                    <a href="rehearsal dinner.html" class="cost-btn">View More Details</a>
+                </div>
+            </div>
+
+            <!-- Welcome Party -->
+            <div class="event-item" onclick="confirmBooking()">
+                <img src="https://www.brides.com/thmb/TPqxzCKAw9A22QUt9g6CcODA4eI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/allwhiteattirewelcomeparty-8a0cfd51cf29445cb20ccb0ad5321689.jpg" alt="Welcome Party">
+                <div class="event-info">
+                    <h3>Welcome Party</h3>
+                    <p>Welcome your out-of-town guests with a casual pre-wedding celebration.</p>
+                    <span class="price-tag">Price: $1,500</span>
+                    <a href="welcome party.html" class="cost-btn">View More Details</a>
+                </div>
+            </div>
+
+            <!-- Couple's Shower -->
+            <div class="event-item" onclick="confirmBooking()">
+                <img src="https://blog.overthemoon.com/wp-content/uploads/2019/05/2d663672-dsc_4044-300x200.jpg" alt="Couple's Shower">
+                <div class="event-info">
+                    <h3>Couple's Shower</h3>
+                    <p>Celebrate the couple together with a fun and relaxed joint shower.</p>
+                    <span class="price-tag">Price: $2,200</span>
+                    <a href="couple shower.html" class="cost-btn">View More Details</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book Now Button -->
+        <button class="book-btn" onclick="confirmBooking()">Book Now</button>
+
+        <!-- Confirmation Message -->
+        <div class="confirmation-message" id="confirmationMessage">
+            Your booking is confirmed! Thank you for choosing us!
+        </div>
+    </div>
+    <footer>
+        <p>Copyright &copy; 2024 Eternal Moments Wedding Planners by Riddhi | All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function confirmBooking() {
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

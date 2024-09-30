@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Wedding Planning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ff6666;
+        }
+
+        .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .wedding-image {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            width: 95%; /* Add this line */
+            margin: 20px; /* Add this line */
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .card-content p {
+            margin: 10px 0;
+        }
+
+        .service-options {
+            margin: 20px 0;
+        }
+
+        .service-options label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .service-options select {
+            padding: 5px;
+        }
+
+        .total-cost-section {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+       
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ff7f50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff5733;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .confirmation-message {
+            color: green;
+            margin-top: 20px;
+            font-size: 18px;
+            display: none;
+        }
+        .book-button {
+            background-color: #8e44ad;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="c:\Users\RIDDHI\OneDrive\Pictures\Screenshots 1\Screenshot (2445).png" alt="Wedding Planning" class="wedding-image">
+        <h1 class="animated-text">Full Wedding Planning</h1>
+        <p class="bold-text"><b>Our full wedding planning service includes everything you need for your special day. Below is a comprehensive breakdown of the services we provide.Customize your perfect wedding package by selecting the services and preferences below. Let us handle the rest!</b></p>
+        
+        
+        <h2 class="animated-text">Food & Catering</h2>
+        <div class="grid">
+        <div class="card">
+            <img src="https://curatedcatering.in/wp-content/uploads/2024/05/a-lavish-wedding-buffet-spread-featuring-an-array-OHIUJEtmT5qLaQCx7jgERg-2IBg5PRtSXmwqreVFya8kw.jpeg" alt="Catering">
+            <div class="card-content">
+                <input type="number" id="guests" placeholder="Enter number of guests">
+                <p>Select your catering option:</p>
+                <div class="service-options">
+                    <label for="food">Food Type:</label>
+                    <select id="food">
+                        <option value="50">Vegetarian - $50 per guest</option>
+                        <option value="70">Non-Vegetarian - $70 per guest</option>
+                        <option value="60">Both - $60 per guest</option>
+                   </select>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="c:\Users\RIDDHI\OneDrive\Pictures\Screenshots 1\Screenshot (2442).png" alt="Drinks">
+            <div class="card-content">
+                <p>Choose Drinks Package:</p>
+                <div class="service-options">
+                    <label for="drinks">Drink Type:</label>
+                    <select id="drinks">
+                        <option value="400">Bronze Package - $400 per guest</option>
+                        <option value="450">Silver Package - $450 per guest</option>
+                        <option value="350">Gold Package   - $350 per guest</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+        <h2>Makeup Artist & Hair Stylist</h2>
+        <div class="grid">
+        <div class="card">
+             <img src="https://stylevanity.com/wp-content/uploads/2019/08/diy-bridal-makeup-wedding-770x513.jpg" alt="Makeup Artist">
+             <div class="card-content">
+                  <p>Choose Makeup Artist:</p>
+                  <div class="service-options">
+                       <select id="makeup-artist">
+                            <option value="500">$500 - Glam by Ella</option>
+                            <option value="700">$700 - Beauty by Lia</option>
+                            <option value="600">$600 - Looks by Zara</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="c:\Users\RIDDHI\OneDrive\Pictures\Screenshots 1\Screenshot (2450).png" alt="Hair Stylist">
+                <div class="card-content">
+                    <p>Choose Hair Stylist:</p>
+                    <div class="service-options">
+                        <select id="hair-stylist">
+                            <option value="400">$400 - Hair by Ava</option>
+                            <option value="450">$450 - Styles by Mia</option>
+                            <option value="350">$350 - Cuts by Ivy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>DJ & Entertainment</h2>
+        <div class="card">
+            <img src="c:\Users\RIDDHI\OneDrive\Pictures\Screenshots 1\Screenshot (2452).png" alt="DJ">
+            <div class="card-content">
+                <p>Select DJ or Singer:</p>
+                <div class="service-options">
+                    <select id="dj">
+                        <option value="1000">$1,000 - DJ Alex</option>
+                        <option value="1200">$1,200 - DJ Mike</option>
+                        <option value="1500">$1,500 - Singer Emily</option>
+                        <option value="1700">$1,700 - Singer James</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <h2>Photography</h2>
+        <div class="card">
+            <img src="https://www.imagesredefined.in/wp-content/uploads/2018/09/wedding-photography-tips.jpg" alt="Photography">
+            <div class="card-content">
+                <p>Choose Photography Package:</p>
+                <div class="service-options">
+                    <select id="photography">
+                        <option value="2000">$2,000 - Classic Package</option>
+                        <option value="2500">$2,500 - Premium Package</option>
+                        <option value="3000">$3,000 - Luxury Package</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <h2>Destination & Transportation</h2>
+        <div class="card">
+            <img src="https://c.pxhere.com/photos/83/57/photo-1412787.jpg!d" alt="Transportation">
+            <div class="card-content">
+                <p>Select Transportation Option:</p>
+                <div class="service-options">
+                    <select id="transport">
+                        <option value="1200">$1,200 - Special Car for Bride & Groom</option>
+                        <option value="1500">$1,500 - Bus for Guests</option>
+                        <option value="800">$800 - Car for Guests</option>
+                        <option value="1900">$1,900 - Car/Bus for guests & Special Car for Bride & Groom</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <h2>Total Cost Breakdown</h2>
+        <div class="total-cost-section">
+            <table id="cost-breakdown">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Food & Catering (Per Guest)</td>
+                        <td>Includes appetizers, main course, and desserts</td>
+                        <td id="food-cost">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Drinks Package (Per Guest)</td>
+                        <td>Includes Two glasses of Wine per person, with a choice of red, white or rose.</td>
+                        <td id="drink-cost">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Makeup Artist</td>
+                        <td>Professional bridal makeup for the bride and bridesmaids</td>
+                        <td id="makeup-cost">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Hair Stylist</td>
+                        <td>Hair styling for the bride and bridesmaids</td>
+                        <td id="hair-cost">$0</td>
+                    </tr>
+                    <tr>
+                        <td>DJ & Entertainment</td>
+                        <td>DJ and sound system for the entire event</td>
+                        <td id="dj-cost">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Photography</td>
+                        <td>Full-day coverage by a professional photographer</td>
+                        <td id="photo-cost">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Transportation</td>
+                        <td>Travel and accommodation arrangements</td>
+                        <td id="transport-cost">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Service Staff</td>
+                        <td>Waiters, bartenders, and event staff for the day</td>
+                        <td id="service-staff cost">$2,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn" onclick="calculateCost()">Calculate Total Cost</button>
+            <h3>Total Cost: <span id="total-cost">$0</span></h3>
+
+            <!-- Book Now Button -->
+            <button class="book-button" onclick="confirmBooking()">Book Now</button>
+
+            <!-- Confirmation Message -->
+            <p id="confirmationMessage" class="confirmation-message">Your booking is confirmed!</p>
+            
+        </div>
+        <footer>
+            <p>Copyright &copy; 2024 Eternal Moments Wedding Planners by Riddhi | All Rights Reserved.</p>
+        </footer>
+    
+        <script>
+            function calculateCost() {
+                const servicestaffCost = 2000;
+                const guests = parseInt(document.getElementById("guests").value);
+                const foodCost = parseInt(document.getElementById("food").value) * guests;
+                const drinkCost = parseInt(document.getElementById("drinks").value) * guests;
+                const makeupCost = parseInt(document.getElementById("makeup-artist").value);
+                const hairCost = parseInt(document.getElementById("hair-stylist").value);
+                const djCost = parseInt(document.getElementById("dj").value);
+                const photoCost = parseInt(document.getElementById("photography").value);
+                const transportCost = parseInt(document.getElementById("transport").value);
+    
+                // Update the table
+                document.getElementById("food-cost").innerText = `$${foodCost}`;
+                document.getElementById("drink-cost").innerText = `$${drinkCost}`;
+                document.getElementById("makeup-cost").innerText = `$${makeupCost}`;
+                document.getElementById("hair-cost").innerText = `$${hairCost}`;
+                document.getElementById("dj-cost").innerText = `$${djCost}`;
+                document.getElementById("photo-cost").innerText = `$${photoCost}`;
+                document.getElementById("transport-cost").innerText = `$${transportCost}`;
+                document.getElementById("service-staff cost").innerText = `$${servicestaffCost}`;
+    
+                // Calculate total cost
+                const totalCost = foodCost + drinkCost + makeupCost + hairCost + djCost + photoCost + transportCost + servicestaffCost;
+                document.getElementById("total-cost").innerText = `$${totalCost}`;
+            }
+
+            function confirmBooking() {
+            // Show the confirmation message when the "Book Now" button is clicked
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+    
+        </script>
+    
+    </body>
+    </html>

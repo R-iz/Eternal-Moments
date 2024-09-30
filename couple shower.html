@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple's Shower | Eternal Moments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background-color: #8e44ad;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #5d4037;
+        }
+        h3 {
+            text-align: center;
+            color: #5d4037
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .shower-image {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+        .details-section {
+            margin-top: 20px;
+        }
+        .details-section h3 {
+            font-size: 1.8em;
+            color: #333;
+        }
+        .details-section p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        .price-tag-container {
+           text-align: center;
+        margin-top: 10px;
+        }
+        .price-tag {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .cost-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .cost-table th, .cost-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .cost-table th {
+            background-color: #5d4037;
+            color: #fff;
+        }
+        .cost-table td {
+            background-color: #f9f9f9;
+        }
+        .total-row {
+            font-weight: bold;
+        }
+        .book-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #8e44ad;
+            color: #fff;
+            text-align: center;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .book-btn:hover {
+            background-color: #8e44ad;
+        }
+        .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+        footer {
+            background-color: #8e44ad;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        /* Confirmation message */
+        .confirmation-message {
+            text-align: center;
+            font-size: 1.5em;
+            color: #28a745;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="animated-text">Couple's Shower</h1>
+    </header>
+
+    <div class="container">
+        <h2 class="animated-text">Celebrate Together with a Fun Couple's Shower</h2>
+        <img src="https://images.squarespace-cdn.com/content/v1/62c5bd6cd864265be0f52897/f0cae359-c525-4a6b-8059-510725c1bf56/couples+shower+1.jpeg?format=1500w" alt="Couple's Shower" class="shower-image">
+
+        <div class="details-section">
+            <h3 class="animated-text">Event Details</h3>
+            <p>
+                Share the excitement with both the bride and groom by hosting a joint Couple’s Shower. Whether it's a casual brunch or a themed celebration, 
+                we’ll help you plan an event that’s fun for both sides of the couple’s friends and family.
+            </p>
+            <div class="price-tag-container">
+            <span class="price-tag">Price: $2,200</span>
+        </div>
+        </div>
+
+        <!-- Cost Breakdown Table -->
+        <h3>Cost Breakdown</h3>
+        <table class="cost-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Venue</td>
+                    <td>Cozy venue with full setup for a relaxed gathering</td>
+                    <td>$1,000</td>
+                </tr>
+                <tr>
+                    <td>Catering</td>
+                    <td>Brunch or buffet-style meals with drinks</td>
+                    <td>$700</td>
+                </tr>
+                <tr>
+                    <td>Decor</td>
+                    <td>Personalized decor with couple-themed elements</td>
+                    <td>$300</td>
+                </tr>
+                <tr>
+                    <td>Entertainment</td>
+                    <td>Games and activities for guests</td>
+                    <td>$200</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Total Cost</td>
+                    <td>$2,200</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Book Now Button -->
+        <button class="book-btn" onclick="confirmBooking()">Book Now</button>
+
+        <!-- Confirmation Message -->
+        <div class="confirmation-message" id="confirmationMessage">
+            Your booking is confirmed! Thank you for choosing us!
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2024 Eternal Moments Wedding Planners by Riddhi | All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function confirmBooking() {
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

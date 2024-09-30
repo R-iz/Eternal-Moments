@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decor and Design - Eternal Moments Wedding Planners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #7c0606;
+            padding: 1rem;
+            text-align: center;
+        }
+        h1 {
+            color: white;
+        }
+        h2, h3 {
+            color: #080502;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .animated-text {
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    h1 {
+      margin: 0;
+    }
+        .decor-style, .product-card, .package {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        .decor-style:hover, .product-card:hover, .package:hover {
+            transform: translateY(-5px);
+        }
+        .decor-style img, .product-card img, .gallery img, .package img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .cta {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .price {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        .form-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .form-container div {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container select, button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 250px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .confirmation-message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+        .cost-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .cost-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="animated-text">Decor and Design - Eternal Moments Wedding Planners</h1>
+    </header>
+
+    <main>
+        <!-- Section 1: Decor Styles -->
+        <h2 class="animated-text">Transform Your Venue with Stunning Decor and Design</h2>
+        <p>At Eternal Moments, we bring your wedding vision to life with personalized decor and design elements. From classic elegance to rustic charm, we create magical settings that reflect your unique style.</p>
+
+        <h2 class="animated-text">Our Decor Styles</h2>
+        <div class="grid-container">
+            <div class="decor-style">
+                <img src="https://snkent.com/wp-content/uploads/2024/01/Leonardo_Diffusion_XL_Bohemian_Bliss_Creating_a_Bohemian_Weddi_1.webp" alt="Bohemian Chic">
+                <h3>Bohemian Chic</h3>
+                <p>Natural elements, pampas grass, and fairy lights create a relaxed, yet elegant atmosphere.</p>
+                <a href="bohemian-chic-costs.html" class="cost-btn">View Estimated Costs</a>
+            </div>
+            <div class="decor-style">
+                <img src="https://media.weddingz.in/images/09909f5de0dc38961cee6f533cb96fbf/Wedding-Reception-Stage-Decoration-Ideas29.jpg" alt="Modern Elegance">
+                <h3>Modern Elegance</h3>
+                <p>Sleek lines, metallic accents, and minimalist decor for a sophisticated celebration.</p>
+                <a href="Modern Elegance costs.html" class="cost-btn">View Estimated Costs</a>
+            </div>
+            <div class="decor-style">
+                <img src="https://i0.wp.com/greenweddingshoes.com/wp-content/uploads/2023/08/romantic-modern-fairytale-inspired-wedding-themes-and-styles.jpeg?fit=728%2C9999" alt="Vintage Romance">
+                <h3>Vintage Romance</h3>
+                <p>Timeless elegance with vintage touches like lace, antique centerpieces, and candles.</p>
+                <a href="Vintage Romance costs.html" class="cost-btn">View Estimated Costs</a>
+            </div>
+            <div class="decor-style">
+                <img src="https://greenweddingshoes.com/wp-content/uploads/2019/07/summery-styled-21.jpg" alt="Tropical">
+                <h3>Tropical Delight</h3>
+                <p>Bold, vibrant colors and lush greenery bring a tropical paradise to your wedding day.</p>
+                <a href="Tropical costs.html" class="cost-btn">View Estimated Costs</a>
+            </div>
+            <div class="decor-style">
+                <img src="https://i.ytimg.com/vi/5vCAxetI_SQ/maxresdefault.jpg" alt="Fairy-Tale">
+                <h3>Fairy-Tale Book</h3>
+                <p>An enchanting setting with twinkling lights, soft florals, and dreamy details for a magical day.</p>
+                <a href="Fairy-Tale.html" class="cost-btn">View Estimated Costs</a>
+            </div>
+            <div class="decor-style">
+                <img src="https://i.pinimg.com/736x/b0/95/17/b09517886b688fcb763701a496a3997e.jpg" alt="Glamorous">
+                <h3>Glamorous Masterpiece</h3>
+                <p>Luxurious elements with rich colors, metallic accents, and ornate decorations for a dazzling event.</p>
+                <a href="Glamorous cost.html" class="cost-btn">View Estimated Costs</a>
+            </div>
+        </div>
+
+        <!-- Section 2: Decor Products -->
+        <h2 class="animated-text">Decor Products</h2>
+        <div class="grid-container">
+            <div class="product-card">
+                <img src="c:\Users\RIDDHI\OneDrive\Pictures\Screenshots 1\Screenshot (2455).png" alt="Elegant Centerpiece">
+                <h3>Elegant Centerpiece</h3>
+                <p>Beautiful floral arrangement with candles for your reception tables.</p>
+                <p class="price">$150 per table </p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rustic Arch">
+                <h3>Rustic Arch</h3>
+                <p>Wooden arch adorned with flowers and fabric for your ceremony.</p>
+                <p class="price">$500 </p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="String Lights">
+                <h3>String Lights</h3>
+                <p>Create a magical atmosphere with our fairy light canopy.</p>
+                <p class="price">$300 per 100 ft</p>
+            </div>
+            <div class="product-card">
+                <img src="https://i0.wp.com/www.weddingforward.com/wp-content/uploads/2023/06/luxury-wedding-decoration-ideas-reception-table-decor-revelryeventdesign.jpeg.jpg?fit=1080%2C1350&quality=70&ssl=1" alt="Luxury Table Settings">
+                <h3>Luxury Table Settings</h3>
+                <p>Elegant place settings including charger plates, cutlery, and glassware.</p>
+                <p class="price">$25 per person</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Floral Wall">
+                <h3>Floral Wall</h3>
+                <p>Stunning backdrop for photos, made with a variety of fresh flowers.</p>
+                <p class="price">$1000 per 8x8 ft section</p>
+            </div>
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/71GR6PsOl4L._AC_UF894,1000_QL80_.jpg" alt="Lantern Decor">
+                <h3>Lantern Decor</h3>
+                <p>Romantic lanterns with LED candles for table or pathway decoration.</p>
+                <p class="price">$20 per lantern</p>
+            </div>
+        </div>
+
+        <!-- Section 3: Popular Decor Packages -->
+        <h2 class="animated-text">Popular Decor Packages</h2>
+        <div class="grid-container">
+            <div class="package">
+                <img src="https://lirp.cdn-website.com/d134ba89/dms3rep/multi/opt/image_6483441+%286%29-640w.JPG" alt="Classic Elegance Package">
+                <h3>Classic Elegance Package</h3>
+                <p>Perfect for small, intimate weddings with elegant floral arrangements and table settings.</p>
+                <p class="price">$2,500</p>
+            </div>
+            <div class="package">
+                <img src="https://images.bridestory.com/image/upload/assets/IMG_20160709_200547_423_kpefej.jpg" alt="Luxury Package">
+                <h3>Luxury Package</h3>
+                <p>A premium package includes grandeur, featuring opulent chandeliers and luxurious decor.</p>
+                <p class="price">$5,000</p>
+            </div>
+            <div class="package">
+                <img src="https://www.theweddingblissthailand.com/wp-content/uploads/2016/09/The-Wedding-Bliss-Thailand-Ideas-To-Ensure-Your-Successful-Wedding-Reception.jpg" alt="Outdoor Bliss Package">
+                <h3>Outdoor Bliss Package</h3>
+                <p>Ideal for outdoor weddings, with custom tents, lounge seating, and fairy light setups.</p>
+                <p class="price">$3,500</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Gallery -->
+        <h2 class="animated-text">Our Work Speaks for Itself</h2>
+        <div class="gallery">
+            <img src="https://wp-media-partyslate.imgix.net/2021/05/photo-6e6a3c38-8b2d-4418-982d-3d96bfd09326.jpeg?auto=compress%2Cformat&ixlib=php-3.3.1" alt="Decor Image 1">
+            <img src="https://i.pinimg.com/564x/6a/87/e6/6a87e6ffd85dd13724c9626d3cc52b94.jpg" alt="Decor Image 2">
+            <img src="https://i.pinimg.com/736x/2e/b0/e7/2eb0e78e188253a7379dcb6f6320fb2d.jpg" alt="Decor Image 3">
+            <img src="https://i.pinimg.com/originals/04/88/67/048867ce03089d345f99258e2d648011.jpg" alt="Decor Image 4">
+        </div>
+
+        <main>
+            <!-- Section 5: Bring Your Vision to Life -->
+            <h2 class="animated-text">Bring Your Vision to Life</h2>
+            <p>Contact us today to discuss your wedding decor ideas and let us create a magical setting for your big day.</p>
+            
+            <div class="form-container">
+                <!-- Decor Style Dropdown -->
+                <div>
+                    <label for="decorStyle">Choose Your Decor Style:</label>
+                    <select id="decorStyle">
+                      <option value="">Select Your Decor Style</option>
+                      <option value="bohemian">Bohemian Chic: $3,500 - $6,200</option>
+                      <option value="modern">Modern Elegance: $5,000 - $9,000</option>
+                      <option value="vintage">Vintage Romance: $4,500 - $8,000</option>
+                      <option value="tropical">Tropical: $5,000 - $8,500</option>
+                      <option value="fairy-tale">Fairy-Tale: $6,000 - $11,500</option>
+                      <option value="glamorous">Glamorous: $8,000 - $14,000</option>
+                    </select>
+                </div>
+    
+                <!-- Decor Package Dropdown -->
+                <div>
+                    <label for="decorPackage">Choose Your Decor Package:</label>
+                    <select id="decorPackage">
+                        <option value="">Select Your Decor Package</option>
+                        <option value="classic">Classic Elegance Package - $2,500</option>
+                        <option value="luxury">Luxury Package - $5,000</option>
+                        <option value="outdoor">Outdoor Bliss Package - $3,500</option>
+                    </select>
+                </div>
+    
+                <!-- Confirm Button -->
+                <button onclick="confirmBooking()">Confirm</button>
+            </div>
+    
+            <!-- Confirmation Message -->
+            <div id="confirmationMessage" class="confirmation-message">Your booking is confirmed!</div>
+        </main>
+    
+        <footer>
+            <p>Copyright &copy; 2024 Eternal Moments Wedding Planners by Riddhi | All Rights Reserved.</p>
+        </footer>
+    
+        <script>
+            function confirmBooking() {
+                const decorStyle = document.getElementById("decorStyle").value;
+                const decorPackage = document.getElementById("decorPackage").value;
+    
+                if (decorStyle && decorPackage) {
+                    document.getElementById("confirmationMessage").style.display = 'block';
+                } else {
+                    alert("Please select both a decor style and a decor package.");
+                }
+            }
+        </script>
+</body>
+</html>
